@@ -177,6 +177,12 @@ map <S-TAB> << V
 vmap <S-TAB> << V
 map <TAB> >> 
 vmap <TAB> >>
+" 插入模式命令
+imap <C-h> <Left>
+imap <C-l> <Right>
+imap <C-k> <Up>
+imap <C-j> <Down>
+" end
 " 注释star
 nnoremap <C-Up> I/*<cr>
 imap <C-Up> <Home>/*<cr>
