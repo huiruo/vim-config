@@ -264,3 +264,55 @@ elseif a:fileName == "guide"
    execute "Explore"
 endif
 endfunction
+
+"tab
+function! MoveToPrevTab()
+  "there is only one window
+  if tabpagenr('$') == 1 && winnr('$') == 1
+    return
+  endif
+  "preparing new window
+  let l:tab_nr = tabpagenr('$')
+  let l:cur_buf = bufnr('%')
+  if tabpagenr() != 1
+    close!
+    if l:tab_nr == tabpagenr('$')
+      tabprev
+    endif
+    "sp 改为竖屏
+     vs
+  else
+    close!
+    exe "0tabnew"
+  endif
+  "opening current buffer in new window
+  exe "b".l:cur_buf
+endfunc
+ 
+function! MoveToNextTab()
+  "there is only one window
+  if tabpagenr('$') == 1 && winnr('$') == 1
+    return
+  endif
+  "preparing new window
+  let l:tab_nr = tabpagenr('$')
+  let l:cur_buf = bufnr('%')
+  if tabpagenr() < tab_nr
+    close!
+    if l:tab_nr == tabpagenr('$')
+     "到下一个标签页
+      tabnext
+    endif
+    "sp 改为竖屏
+     vs
+  else
+    close!
+    tabnew
+  endif
+  "opening current buffer in new window
+  exe "b".l:cur_buf
+endfunc
+"在一个tab中编辑文件，但是想要参考上一个tab中已经打开的一个窗口的内容，这时候想要将当前的tab变成上一个tab的一个分屏
+"将tab变成上一个tab的一个分屏，或者将tab变成下一个tab的一个分屏。模仿之前有关tab的快捷键，我加了下面这两个映射：
+nnoremap <F10> :call MoveToNextTab()<cr>
+nnoremap <F11> :call MoveToPrevTab()<cr>
