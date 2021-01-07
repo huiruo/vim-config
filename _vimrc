@@ -27,6 +27,11 @@ set backspace=eol,start,indent
 "set cursorline
 let g:netrw_banner = 0 "to remove netrw_banner
 
+" indentLine start
+let g:indentLine_char = '¦' "c,¦, ┆, │, ⎸, or ▏ to display more beautiful lines
+let g:indentLine_showFirstIndentLevel = 1   "显示对齐线首字符
+" indentLine end
+
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
 if &diffopt !~# 'internal'
@@ -70,6 +75,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'godlygeek/tabular'
 Plug 'posva/vim-vue'
 Plug 'w0rp/ale'
+Plug 'Yggdroot/indentLine'
 "Plug 'Chiel92/vim-autoformat'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -108,12 +114,14 @@ call defx#custom#option('_', {
       \ 'resume': 1
       \ })
 " Keymap in defx
-" 使用 ;e 切换显示文件浏览，使用 ;a 查找到当前文件位置
+" 使用 ;e 切换显示文件浏览，使用 ;a 查找到当前文件位置,;w 是否显式对齐线
 let g:maplocalleader=';'
 nnoremap <silent> <LocalLeader>e
 \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
 nnoremap <silent> <LocalLeader>a
 \ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
+nnoremap <silent> <LocalLeader>w
+\ :IndentLinesToggle<CR>
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
