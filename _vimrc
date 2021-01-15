@@ -10,12 +10,13 @@ set nobackup
 set noswapfile
 set diffexpr=MyDiff()
 set nu
-set lines=35 columns=118 "lines是上下宽度,以行为单位,columns是左右宽度,以字符个数为dao单位
-colo sonokai "sonokai desert
+set lines=40 columns=118 "lines是上下宽度,以行为单位,columns是左右宽度,以字符个数为dao单位
+colo sonokai "desert 
 set autoindent "新行会采用和上一行相同的缩进
 set shiftwidth=4
-set guioptions-=T "隐藏工具栏
-set guioptions-=m "隐藏菜单栏
+"set guioptions-=T "隐藏工具栏
+"set guioptions-=m "隐藏菜单栏
+set go= ""set guioptions的缩写
 " 修正 vim 删除/退格键行为
 " 如果你在一行的开头切换到插入模式，这时按退格无法退到上一行
 " 如果你在一行的某一列切换到插入模式，这时按退格无法退删除这一列之前的字符
@@ -26,6 +27,8 @@ set backspace=eol,start,indent
 " 高亮光标所在行
 "set cursorline
 let g:netrw_banner = 0 "to remove netrw_banner
+set so=3 "下面总有3行,999总在中间
+set showtabline=2 "0 不显示标签栏,1,默认设置在创建标签页后才显示标签栏,2 总是显示标签栏
 
 " indentLine start
 let g:indentLine_char = '¦' "c,¦, ┆, │, ⎸, or ▏ to display more beautiful lines
@@ -114,8 +117,8 @@ call defx#custom#option('_', {
       \ 'resume': 1
       \ })
 " Keymap in defx
-" 使用 ;e 切换显示文件浏览，使用 ;a 查找到当前文件位置,;w 是否显式对齐线
-let g:maplocalleader=';'
+" 使用 'e 切换显示文件浏览，使用 'a 查找到当前文件位置,'w 是否显式对齐线
+let g:maplocalleader="'"
 nnoremap <silent> <LocalLeader>e
 \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
 nnoremap <silent> <LocalLeader>a
@@ -151,14 +154,14 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> P defx#do_action('paste')
   nnoremap <silent><buffer><expr> N defx#do_action('new_file')
   nnoremap <silent><buffer><expr> M defx#do_action('rename')
+  nnoremap <silent><buffer><expr> D defx#do_action('remove_trash')
   nnoremap <silent><buffer><expr> D defx#do_action('remove_trash')"need:pip3 install send2trash
-  nnoremap <silent><buffer><expr> A defx#do_action('new_multiple_files')
   nnoremap <silent><buffer><expr> U defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
   "切换光标候选选择"
   nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select')
   "nnoremap <silent><buffer><expr> P
-	  "\ defx#do_action('toggle_select')
+    "\ defx#do_action('toggle_select')
   nnoremap <silent><buffer><expr> R defx#do_action('redraw')
   "test
   "Preview the file.  Close the preview window if it is alread exists
