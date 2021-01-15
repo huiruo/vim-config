@@ -1,0 +1,167 @@
+{
+  //https://code.visualstudio.com/docs/getstarted/settings
+  //"workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Monokai",
+  "editor.fontSize": 16,
+  // "editor.lineNumbers": "off",
+  "editor.lineNumbers": "on",
+  "vim.useSystemClipboard": true, //最左侧工具栏
+  //"workbench.editor.showTabs": false,
+  "editor.minimap.enabled": false,
+  "explorer.autoReveal": false, //文件是否关联
+//"workbench.editor.enablePreview": false,
+  "vim.useCtrlKeys": true,
+  //"vim.easymotion": true,
+  "vim.handleKeys": {
+    "<C-v>": false
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-l>"],
+      "after": ["<Right>"]
+    },
+    {
+      "before": ["<C-h>"],
+      "after": ["<Left>"]
+    },
+    {
+      "before": ["C+k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["C+j"],
+      "after": ["Up"]
+    },
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["revealFileInOS"]
+    }, //打开文件地址
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.files.action.showActiveFileInExplorer"]
+    }, //打开关联侧边栏
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.toggleFullScreen"]
+    }, 
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.quickOpen"]
+    }, //打开文件
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.toggleActivityBarVisibility"]
+      //"workbench.activityBar.visible": false, //最左侧工具栏
+      //"workbench.editor.showTabs": false,
+    }, //最左侧设置栏
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.new"]
+      //Ctrl+`	workbench.action.terminal.toggleTerminal
+    }, // 打开终端
+    {
+      "before": ["<leader>", "v"],
+      "commands": ["workbench.action.openView"]
+    }, // 打开视口
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
+      "before": ["Z", "Z"],
+      //"commands": [":q","Enter"],
+      "commands": [
+        {
+          "command": "workbench.action.closeActiveEditor",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+  ],
+  "vim.leader": "'",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.colorCustomizations": {
+    "[Monokai]": {
+      "editor.background": "#1a2c1c",
+      "icon.foreground": "#893ecf",
+      //激活卡
+      "tab.activeBackground": "#67409b",
+      "tab.activeForeground": "#FFFF00",
+      //最左侧
+      "activityBar.background": "#4e3e63", //左侧栏颜色
+      "activityBar.inactiveForeground": "#ffee00b4",
+      //激活的,用于区分不同的窗口
+      "titleBar.activeForeground": "#88ff00",
+      //左侧栏
+      "sideBar.background": "#345557",
+      "sideBar.foreground": "#da8f1e", //#171817
+      "input.foreground": "#07f313",
+      "sideBarTitle.foreground": "#07f313",
+      "sideBarSectionHeader.foreground": "#429191",
+      "sideBarSectionHeader.background": "#354e50", //侧边栏节标题的背景颜色
+      //底部
+      "statusBar.foreground": "#07f313", //底部状态栏内容颜色
+      "statusBar.background": "#345557", //底部状态栏eeabda
+      // 设置guide线高亮颜色
+      "editorIndentGuide.activeBackground": "#35776c",
+      "list.activeSelectionBackground": "#3d28b3", //被鼠标选中背景
+      "list.activeSelectionForeground": "#03ff42", //被鼠标选中文字颜色
+      "list.focusBackground": "#3d28b3",
+      "list.hoverBackground": "#373738b2",
+      "list.hoverForeground": "#f3e305",
+      //当前激活左侧栏的文件
+      "list.inactiveSelectionBackground": "#3d28b3",
+      "list.inactiveSelectionForeground": "#f3e305",
+      //设置错误文件颜色
+      "list.errorForeground": "#ec1644",
+      "list.warningForeground": "#800699",
+      //菜单栏
+      //"menubar.selectionBorder":"#07f313",
+      //"menu.foreground":"#ff0000",
+      "gitDecoration.modifiedResourceForeground": "#07f313",
+      "gitDecoration.stageModifiedResourceForeground": "#8e07a0",
+      "gitDecoration.ignoredResourceForeground": "#817f14",
+      "gitDecoration.addedResourceForeground": "#92057b",
+      "gitDecoration.untrackedResourceForeground": "#0d9223"
+    }
+  },
+  "go.useLanguageServer": true,
+  "go.formatTool": "goimports",
+  "editor.tabSize": 2,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "window.zoomLevel": 0,
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "eslint.nodePath": "",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.fontLigatures": null,
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": ["document"]
+  },
+  "breadcrumbs.enabled": true,
+  "editor.renderWhitespace": "all",
+  "workbench.activityBar.visible": false
+}
+
