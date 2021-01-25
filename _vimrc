@@ -10,16 +10,20 @@ set nobackup
 set noswapfile
 set diffexpr=MyDiff()
 set nu
-""set lines=40 columns=118 "lines是上下宽度,以行为单位,columns是左右宽度,以字符个数为单位
+"set lines=40 columns=118 "lines是上下宽度,以行为单位,columns是左右宽度,以字符个数为单位
 autocmd GUIEnter * simalt ~x
 colo xcodedarkhc "xcodedark sonokai xcodedarkhc
 set autoindent "新行会采用和上一行相同的缩进
 set shiftwidth=4
-set go= ""set guioptions的缩写
+set go= ""guioptions的缩写
 set backspace=eol,start,indent "修正 vim 删除/退格键行为
 let g:netrw_banner = 0 "to remove netrw_banner
-set so=3 "下面总有3行,999总在中间
-set showtabline=0 "0 不显示标签栏,1,默认设置在创建标签页后才显示标签栏,2 总是显示标签栏
+set so=3 "下面总有3行
+set showtabline=0 "0 不显示标签栏,1,默认,2 总是显示标签栏
+"补全字典设置
+set dictionary-=$VIM/dic/dic.txt dictionary+=$VIM/dic/dic.txt
+set iskeyword+=-,_ " 符号的单词不要被换行分割
+set complete+=k
 
 map <C-v> "+gP
 imap <C-v> <S-Insert>
@@ -33,10 +37,11 @@ vmap <S-TAB> << V
 map <TAB> >> 
 vmap <TAB> >>
 " 插入模式命令
-imap <C-h> <Left>
+imap <C-g> <Left>
 imap <C-l> <Right>
 imap <C-k> <Up>
 imap <C-j> <Down>
+imap <C-h> <BS>
 " end
 " 注释star
 nnoremap <C-Up> I/*<cr>
@@ -45,9 +50,8 @@ nnoremap <C-Down> A*/
 imap <C-Down> <End> */
 " shift+Left注释反注释
 nmap <C-Left> I//<ESC>
-imap <C-Left> <Home>//<ESC>
-nmap <C-Right> <Home>xx<ESC>
-imap <C-Right> <Home><Right><Right><BS><BS><ESC>
+nmap <C-Right> <Home>f/xx<ESC>
+nmap <F11> i``<cr><Up>
 " 注释 end
 command -nargs=* Wk :call Work(<f-args>) "Multiple args: proName save/open
 function Work(args1, ...)
@@ -77,13 +81,14 @@ elseif a:fileName == "guide"
    execute "vi C:\\Users\\Administrator\\vimpro\\doc.vim"
    execute "Explore"
 elseif a:fileName == "teableDoc"
-  execute "vi C:\\Users\\Administrator\\OneDrive\\202009-12-gvim\\gege_project\\01_table项目文档.md"
+  execute "vi C:\\Users\\Administrator\\OneDrive\\202009-12-gvim\\teable_project\\01_table项目文档.md"
 elseif a:fileName == "vimroot"
   execute "vi C:\\Users\\Administrator\\OneDrive\\202009-12-gvim\\vimRoot.txt"
 endif
 endfunction
 
 function SaveFn(proName)
+    "C:\Users\lc139\vimpro
 execute "mksession! ~//vimpro//".a:proName.".vim"
    echom a:proName . " saved successfully"
 endfunction
@@ -117,11 +122,10 @@ endfunction
 
 call plug#begin("$VIM/vim82/plugged")
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-""Plug 'posva/vim-vue'
-Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -131,26 +135,10 @@ else
 endif
 call plug#end()
 
-" indentLine start
-let g:indentLine_char = '¦' "c,¦, ┆, │, ⎸, or ▏ to display more beautiful lines
-let g:indentLine_showFirstIndentLevel = 1   "显示对齐线首字符
-" indentLine end
-
 " airline插件配置
 let g:airline_theme="luna" "luna dark
-let g:airline#extensions#tabline#enabled = 1 "开启tabline
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0 "关闭状态显示空白符号计数
-"let g:airline#extensions#tabline#buffer_nr_show = 0
-
-" ALE配置
-let g:ale_sign_column_always = 1 "始终开启标志列
-let g:ale_sign_error = '✗' 
-let g:ale_sign_warning = '⚡'
-let g:ale_statusline_format = ['✗ %d', '⚡  %d','✔ OK'] "在vim自带的状态栏中整合ale
-" 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
-"nmap sp <Plug>(ale_previous_wrap)
-"nmap sn <Plug>(ale_next_wrap)
-" end
 
 "defx
 call defx#custom#option('_', {
@@ -164,14 +152,22 @@ call defx#custom#option('_', {
       \ 'resume': 1
       \ })
 " Keymap in defx
-" 使用 'e 切换显示文件浏览，使用 'a 查找到当前文件位置,'w 是否显式对齐线
+" 使用 'e 切换显示文件浏览，使用 'a 查找到当前文件位置
 let g:maplocalleader="'"
 nnoremap <silent> <LocalLeader>e
 \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
 nnoremap <silent> <LocalLeader>a
 \ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
-nnoremap <silent> <LocalLeader>w
-\ :IndentLinesToggle<CR>
+nnoremap <silent> <LocalLeader>m :LeaderfMru <CR>
+nnoremap <silent> <LocalLeader>l :LeaderfLine <CR>
+nnoremap <silent> <LocalLeader>f :LeaderfFile <CR>
+nnoremap <silent> <LocalLeader>b :LeaderfBuffer <CR>
+inoremap ' ''<Left>
+inoremap " ""<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap < <><Left>
+inoremap { {<CR>}<ESC>O
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
@@ -179,7 +175,7 @@ function! s:defx_my_settings() abort
   setl nospell
   setl signcolumn=no
   setl nonumber
-  nnoremap <silent><buffer><expr> o     <SID>defx_toggle_tree()" 打开或者关闭文件夹，文件
+  nnoremap <silent><buffer><expr> o <SID>defx_toggle_tree()
   nnoremap <silent><buffer><expr> <CR>
   \ defx#is_directory() ?
   \ defx#do_action('open_or_close_tree') :
@@ -194,87 +190,24 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> t defx#do_action('drop', 'tabe')
   nnoremap <silent><buffer><expr> E
   \ defx#do_action('open', 'vsplit')
-  "nnoremap <silent><buffer><expr> o defx#do_action('open_tree')
-  "nnoremap <silent><buffer><expr> i defx#do_action('open')
   nnoremap <silent><buffer><expr> O defx#do_action('open_tree_recursive')
   nnoremap <silent><buffer><expr> C defx#do_action('copy')
   nnoremap <silent><buffer><expr> P defx#do_action('paste')
   nnoremap <silent><buffer><expr> N defx#do_action('new_file')
   nnoremap <silent><buffer><expr> M defx#do_action('rename')
+  nnoremap <silent><buffer><expr> D defx#do_action('remove_trash')
   nnoremap <silent><buffer><expr> D defx#do_action('remove_trash')"need:pip3 install send2trash
-  nnoremap <silent><buffer><expr> A defx#do_action('new_multiple_files')
   nnoremap <silent><buffer><expr> U defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
-  "切换光标候选选择"
-  nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select')
-  "nnoremap <silent><buffer><expr> P
-	  "\ defx#do_action('toggle_select')
   nnoremap <silent><buffer><expr> R defx#do_action('redraw')
-  "test
-  "Preview the file.  Close the preview window if it is alread exists
-  "nnoremap <silent><buffer><expr> P defx#do_action('preview')
-  "nnoremap <silent><buffer><expr> P defx#do_action('preview')
 endfunction
 
 function! s:defx_toggle_tree() abort
-    " Open current file, or toggle directory expand/collapse
     if defx#is_directory()
         return defx#do_action('open_or_close_tree')
     endif
     return defx#do_action('multi', ['drop'])
 endfunction
-
-"tab
-function! MoveToPrevTab()
-  "there is only one window
-  if tabpagenr('$') == 1 && winnr('$') == 1
-    return
-  endif
-  "preparing new window
-  let l:tab_nr = tabpagenr('$')
-  let l:cur_buf = bufnr('%')
-  if tabpagenr() != 1
-    close!
-    if l:tab_nr == tabpagenr('$')
-      tabprev
-    endif
-    "sp 改为竖屏
-     vs
-  else
-    close!
-    exe "0tabnew"
-  endif
-  "opening current buffer in new window
-  exe "b".l:cur_buf
-endfunc
- 
-function! MoveToNextTab()
-  "there is only one window
-  if tabpagenr('$') == 1 && winnr('$') == 1
-    return
-  endif
-  "preparing new window
-  let l:tab_nr = tabpagenr('$')
-  let l:cur_buf = bufnr('%')
-  if tabpagenr() < tab_nr
-    close!
-    if l:tab_nr == tabpagenr('$')
-     "到下一个标签页
-      tabnext
-    endif
-    "sp 改为竖屏
-     vs
-  else
-    close!
-    tabnew
-  endif
-  "opening current buffer in new window
-  exe "b".l:cur_buf
-endfunc
-"在一个tab中编辑文件，但是想要参考上一个tab中已经打开的一个窗口的内容，这时候想要将当前的tab变成上一个tab的一个分屏
-"将tab变成上一个tab的一个分屏，或者将tab变成下一个tab的一个分屏。模仿之前有关tab的快捷键，我加了下面这两个映射：
-nnoremap <F10> :call MoveToNextTab()<cr>
-nnoremap <F11> :call MoveToPrevTab()<cr>
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
