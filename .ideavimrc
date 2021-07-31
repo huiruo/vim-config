@@ -1,3 +1,5 @@
+
+
 map <C-v> "+gP
 imap <C-v> <S-Insert>
 map <C-c> "+y
@@ -25,6 +27,31 @@ imap <C-Left> <Home>//<ESC>
 nmap <C-Right> <Home>xx<ESC>
 imap <C-Right> <Home><Right><Right><BS><BS><ESC>
 " 注释 end
+
+let mapleader="'"
+nnoremap <Leader>q  :q<CR>
+" (上下翻页)
+nnoremap <Leader>d  <C-d>
+nnoremap <Leader>u  <C-u>
+
+" idea内置
+" idea内置快捷键alt+F1 (使用快捷键 空格+m)
+nnoremap <Leader>m :action SelectIn<CR>
+" idea内置快捷键control+E (使用快捷键 空格+e)
+nnoremap <Leader>e :action RecentFiles<CR>
+"相当于IDEA的两次shift按钮
+nnoremap <Leader>se :action SearchEverywhere<CR>
+"跳转到文件
+nnoremap <Leader>gf :action GotoFile<CR>
+"显示当前文件路径
+nnoremap <Leader>sf :action ShowFilePath<CR>
+"修改当前文件的文件名
+nnoremap <Leader>rf :action RenameFile<CR>
+nnoremap <Leader>fs :action ToggleFullScreen<CR>
+nnoremap <C-A-l> :action ReformatCode<CR>
+"跳转到Action
+nnoremap <Leader>ga :action GotoAction<CR>
+
 command -nargs=* Wk :call Work(<f-args>) "Multiple args: proName save/open
 function Work(args1, ...)
  if a:0==0
