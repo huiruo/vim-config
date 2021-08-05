@@ -1,5 +1,3 @@
-
-
 map <C-v> "+gP
 imap <C-v> <S-Insert>
 map <C-c> "+y
@@ -10,8 +8,8 @@ vmap <S-TAB> << V
 map <TAB> >> 
 vmap <TAB> >>
 " 插入模式命令
-imap <C-h> <Left>
-imap <C-g> <BS>
+imap <C-h> <BS>
+imap <C-g> <Left>
 imap <C-l> <Right>
 imap <C-k> <Up>
 imap <C-j> <Down>
