@@ -34,7 +34,12 @@ nnoremap <Leader>u  <C-u>
 
 " idea内置
 " idea内置快捷键alt+F1 (使用快捷键 空格+m)
+nnoremap <Leader>s :action SelectIn<CR>
+" 隐藏侧边项目栏 
+nnoremap <Leader>a :action ActivateProjectToolWindow<CR>
 nnoremap <Leader>m :action SelectIn<CR>
+" GotoFile 相当于ctrl+p
+nnoremap <C-p> :action GotoFile<CR>
 " idea内置快捷键control+E (使用快捷键 空格+e)
 nnoremap <Leader>e :action RecentFiles<CR>
 "相当于IDEA的两次shift按钮
