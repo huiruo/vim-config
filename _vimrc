@@ -154,14 +154,13 @@ call defx#custom#option('_', {
 " Keymap in defx
 " 使用 'e 切换显示文件浏览，使用 'a 查找到当前文件位置
 let g:maplocalleader="'"
-nnoremap <silent> <LocalLeader>e
-\ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-nnoremap <silent> <LocalLeader>a
-\ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
-nnoremap <silent> <LocalLeader>m :LeaderfMru <CR>
-nnoremap <silent> <LocalLeader>l :LeaderfLine <CR>
-nnoremap <silent> <LocalLeader>f :LeaderfFile <CR>
-nnoremap <silent> <LocalLeader>b :LeaderfBuffer <CR>
+nnoremap <silent> <LocalLeader>e :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
+nnoremap <silent> <LocalLeader>a :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
+
+nnoremap <silent> <LocalLeader>m :LeaderfMru <CR> "查询最近打开过的文件
+nnoremap <silent> <LocalLeader>l :LeaderfLine <CR> 
+nnoremap <silent> <LocalLeader>f :LeaderfFile <CR> "文件搜索
+nnoremap <silent> <LocalLeader>b :LeaderfBuffer <CR> "查询Buffer
 inoremap ' ''<Left>
 inoremap " ""<Left>
 inoremap ( ()<Left>
