@@ -1,7 +1,3 @@
-"set pythonthreedll=C:\Users\ruo\AppData\Local\Programs\Python\Python39\python39.dll
-"set pythonthreehome=C:\Users\ruo\AppData\Local\Programs\Python\Python39
-"let g:python3_host_prog="C:\\Users\\ruo\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
-
 let mapleader="'"                                               " 设置leader键
 let g:maplocalleader="'"
 set nocompatible                                                " 不以兼容模式运行
@@ -38,23 +34,20 @@ set mouse=a                                                     " 启用鼠标
 "set scrolloff=5                                                 " 光标行上下移动范围各缩小5行
 
 "复制粘贴
-"map <C-v> "+p
+"map <C-v> +p
 "imap <C-v> <S-Insert>
-"map <C-c> "+y
+"map <C-c> +y
 "imap <C-c> "+y
-
-" 复制到系统剪切板
-map +y "+y
-" 从系统剪切板粘贴
-map +p "+p
+map <C-C> "+y
+map <C-V> "+p
 
 " 快速跳转行首与行尾
-nnoremap L $
-nnoremap H ^
+"nnoremap L $
+"nnoremap H ^
 " 向下5行
-noremap <C-j> 5j
+"noremap <C-j> 5j
 " 向上5行
-noremap <C-k> 5k
+"noremap <C-k> 5k
 
 " 插入模式命令
 imap <C-g> <Left>
@@ -68,10 +61,15 @@ imap <C-h> <BS>
 call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'tomasr/molokai'
 Plug 'luochen1990/rainbow'
-Plug 'luochen1990/rainbow'
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+"Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" jsx start
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+" end
 call plug#end()
 
 colorscheme molokai
@@ -102,11 +100,25 @@ let g:rainbow_conf = {
 	\}
 
 "Leaderf 配置
-nnoremap <silent> <LocalLeader>m :LeaderfMru <CR>
-nnoremap <silent> <LocalLeader>l :LeaderfLine <CR>
-nnoremap <silent> <LocalLeader>f :LeaderfFile <CR>
-nnoremap <silent> <LocalLeader>b :LeaderfBuffer <CR>
+"nnoremap <silent> <LocalLeader>m :LeaderfMru <CR>
+"nnoremap <silent> <LocalLeader>l :LeaderfLine <CR>
+"nnoremap <silent> <LocalLeader>f :LeaderfFile <CR>
+"nnoremap <silent> <LocalLeader>b :LeaderfBuffer <CR>
 
+" ftz
+"当前目录搜索文件
+nnoremap <silent> <C-p> :Files<CR>
+" Ctrl + e 查看当前 Buffer，两次 Ctrl + e 快速切换上次打开的 Buffer
+nmap <C-e> :Buffers<CR>
+"nnoremap <silent> <LocalLeader> :Buffers<CR>
+let g:fzf_action = { 'ctrl-e': 'edit' }
+
+" 在Vim打开的历史文件中搜索，相当于是在MRU中搜索，:History：命令历史查找
+nnoremap <silent> <LocalLeader>b :History <CR>
+" Lines只在当前Buffer中搜索
+nnoremap <silent> <LocalLeader>l :Lines <CR>
+" :Marks搜索 mark 标记
+nnoremap <silent> <LocalLeader>m :Marks <CR>
 
 "defx
 call defx#custom#option('_', {
@@ -155,3 +167,9 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" jsx支持
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" dark red 参考：https://github.com/peitalin/vim-jsx-typescript
+hi tsxTagName guifg=#E06C75
+hi tsxComponentName guifg=#E06C75
+hi tsxCloseComponentName guifg=#E06C75
