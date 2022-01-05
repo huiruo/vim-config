@@ -1,16 +1,21 @@
 {
-  //https://code.visualstudio.com/docs/getstarted/settings
-  //"workbench.colorTheme": "Default Light+",
+  // https://code.visualstudio.com/docs/getstarted/settings
+  // "workbench.colorTheme": "Default Light+",
   "workbench.colorTheme": "Monokai",
   "editor.fontSize": 16,
   // "editor.lineNumbers": "off",
   "editor.lineNumbers": "on",
-  "vim.useSystemClipboard": true, //最左侧工具栏
-  //"workbench.editor.showTabs": false,
+  "vim.useSystemClipboard": true, 
+  // "workbench.editor.showTabs": false,
   "editor.minimap.enabled": false,
-  "explorer.autoReveal": false, //文件是否关联
-//"workbench.editor.enablePreview": false,
+  // 文件是否关联
+  "explorer.autoReveal": false, 
+  // "workbench.editor.enablePreview": false,
   "vim.useCtrlKeys": true,
+  // 隐藏顶部标题栏
+  "window.titleBarStyle":"custom",
+  // 顶部工具栏变为 alt 快捷键切换
+  "window.menuBarVisibility": "toggle", 
   //"vim.easymotion": true,
   "vim.handleKeys": {
     "<C-v>": false
@@ -21,7 +26,7 @@
       "after": ["<Right>"]
     },
     {
-      "before": ["<C-h>"],
+      "before": ["<C-g>"],
       "after": ["<Left>"]
     },
     {
@@ -31,7 +36,7 @@
     {
       "before": ["C+j"],
       "after": ["Up"]
-    },
+    }
   ],
   "vim.normalModeKeyBindings": [
     {
@@ -57,8 +62,8 @@
     {
       "before": ["<leader>", "w"],
       "commands": ["workbench.action.toggleActivityBarVisibility"]
-      //"workbench.activityBar.visible": false, //最左侧工具栏
-      //"workbench.editor.showTabs": false,
+      // "workbench.activityBar.visible": false, //最左侧工具栏
+      // "workbench.editor.showTabs": false,
     }, //最左侧设置栏
     {
       "before": ["<leader>", "t"],
@@ -117,15 +122,15 @@
       "list.focusBackground": "#3d28b3",
       "list.hoverBackground": "#373738b2",
       "list.hoverForeground": "#f3e305",
-      //当前激活左侧栏的文件
+      // 当前激活左侧栏的文件
       "list.inactiveSelectionBackground": "#3d28b3",
       "list.inactiveSelectionForeground": "#f3e305",
-      //设置错误文件颜色
+      // 设置错误文件颜色
       "list.errorForeground": "#ec1644",
       "list.warningForeground": "#800699",
-      //菜单栏
-      //"menubar.selectionBorder":"#07f313",
-      //"menu.foreground":"#ff0000",
+      // 菜单栏
+      // "menubar.selectionBorder":"#07f313",
+      // "menu.foreground":"#ff0000",
       "gitDecoration.modifiedResourceForeground": "#07f313",
       "gitDecoration.stageModifiedResourceForeground": "#8e07a0",
       "gitDecoration.ignoredResourceForeground": "#817f14",
@@ -133,12 +138,9 @@
       "gitDecoration.untrackedResourceForeground": "#0d9223"
     }
   },
-  "go.useLanguageServer": true,
-  "go.formatTool": "goimports",
   "editor.tabSize": 2,
   "git.autofetch": true,
   "git.confirmSync": false,
-  "window.zoomLevel": 0,
   "files.associations": {
     "*.cjson": "jsonc",
     "*.wxss": "css",
@@ -147,21 +149,16 @@
   "emmet.includeLanguages": {
     "wxml": "html"
   },
-  "minapp-vscode.disableAutoConfig": true,
-  "eslint.nodePath": "",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "editor.fontLigatures": null,
+  "editor.fontLigatures":true,
   "[json]": {
     "editor.quickSuggestions": {
       "strings": true
     },
     "editor.suggest.insertMode": "replace",
-    "gitlens.codeLens.scopes": ["document"]
   },
   "breadcrumbs.enabled": true,
-  "editor.renderWhitespace": "all",
-  "workbench.activityBar.visible": false
+  "editor.renderWhitespace": "all"
 }
-
