@@ -12,8 +12,9 @@ set wildmenu                                                    " 显示补全�
 set hlsearch                                                    " 高亮搜索结果
 set nobackup
 set noswapfile
-set wildmenu                    																" vim 自身命令行模式智能补全
+set wildmenu  " vim 自身命令行模式智能补全
 set showmatch " 高亮匹配括号
+et nocursorline " 设置不显示当前行横杠
 "set showtabline=0 "0 不显示标签栏,1,默认,2 总是显示标签栏
 syntax on
 set winaltkeys=no
@@ -70,8 +71,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 " end
+Plug 'godlygeek/tabular' " vim-markdown必要插件
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
+let g:vim_markdown_folding_disabled = 1 " 禁用markdown折叠
 colorscheme molokai
 
 " 彩虹括号
