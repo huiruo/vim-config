@@ -1,22 +1,14 @@
 {
   // https://code.visualstudio.com/docs/getstarted/settings
-  // "workbench.colorTheme": "Default Light+",
-  "workbench.colorTheme": "Monokai",
   "editor.fontSize": 16,
-  // "editor.lineNumbers": "off",
-  "editor.lineNumbers": "on",
-  "vim.useSystemClipboard": true, 
-  // "workbench.editor.showTabs": false,
   "editor.minimap.enabled": false,
-  // 文件是否关联
   "explorer.autoReveal": false, 
-  // "workbench.editor.enablePreview": false,
-  "vim.useCtrlKeys": true,
-  // 隐藏顶部标题栏
   "window.titleBarStyle":"custom",
-  // 顶部工具栏变为 alt 快捷键切换
   "window.menuBarVisibility": "toggle", 
-  //"vim.easymotion": true,
+  "editor.tabSize": 2,
+
+  // "vim.useSystemClipboard": true, 
+  "vim.useCtrlKeys": true,
   "vim.handleKeys": {
     "<C-v>": false
   },
@@ -38,6 +30,7 @@
       "after": ["Up"]
     }
   ],
+  "vim.leader": "'",
   "vim.normalModeKeyBindings": [
     {
       "before": ["<leader>", "a"],
@@ -46,11 +39,11 @@
     {
       "before": ["<leader>", "s"],
       "commands": ["revealFileInOS"]
-    }, //打开文件地址
+    },
     {
       "before": ["<leader>", "e"],
       "commands": ["workbench.files.action.showActiveFileInExplorer"]
-    }, //打开关联侧边栏
+    },
     {
       "before": ["<leader>", "f"],
       "commands": ["workbench.action.toggleFullScreen"]
@@ -58,29 +51,25 @@
     {
       "before": ["<leader>", "q"],
       "commands": ["workbench.action.quickOpen"]
-    }, //打开文件
+    },
     {
       "before": ["<leader>", "w"],
       "commands": ["workbench.action.toggleActivityBarVisibility"]
-      // "workbench.activityBar.visible": false, //最左侧工具栏
-      // "workbench.editor.showTabs": false,
-    }, //最左侧设置栏
+    },
     {
       "before": ["<leader>", "t"],
       "commands": ["workbench.action.terminal.new"]
-      //Ctrl+`	workbench.action.terminal.toggleTerminal
-    }, // 打开终端
+    },
     {
       "before": ["<leader>", "v"],
       "commands": ["workbench.action.openView"]
-    }, // 打开视口
+    },
     {
       "before": ["Y"],
       "after": ["y", "$"]
     },
     {
       "before": ["Z", "Z"],
-      //"commands": [":q","Enter"],
       "commands": [
         {
           "command": "workbench.action.closeActiveEditor",
@@ -89,46 +78,53 @@
       ]
     }
   ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-  ],
-  "vim.leader": "'",
-  "diffEditor.ignoreTrimWhitespace": false,
+
+  "workbench.colorTheme": "Monokai",
   "workbench.colorCustomizations": {
     "[Monokai]": {
-      "editor.background": "#1a2c1c",
+      /*主板*/
+      // "editor.background": "#1a2c1c",
+      "editor.background": "#0d180d",
       "icon.foreground": "#893ecf",
-      //激活卡
+      /*激活卡*/
       "tab.activeBackground": "#67409b",
       "tab.activeForeground": "#FFFF00",
-      //最左侧
-      "activityBar.background": "#4e3e63", //左侧栏颜色
-      "activityBar.inactiveForeground": "#ffee00b4",
-      //激活的,用于区分不同的窗口
-      "titleBar.activeForeground": "#88ff00",
-      //左侧栏
-      "sideBar.background": "#345557",
+      /*左侧栏*/
+      // "sideBar.background": "#345557",
+      // "sideBar.background": "#1a271a",
+      "sideBar.background": "#142920",
       "sideBar.foreground": "#da8f1e", //#171817
       "input.foreground": "#07f313",
       "sideBarTitle.foreground": "#07f313",
       "sideBarSectionHeader.foreground": "#429191",
       "sideBarSectionHeader.background": "#354e50", //侧边栏节标题的背景颜色
-      //底部
-      "statusBar.foreground": "#07f313", //底部状态栏内容颜色
-      "statusBar.background": "#345557", //底部状态栏eeabda
-      // 设置guide线高亮颜色
+      /*最左侧*/
+      // "activityBar.background": "#4e3e63",
+      "activityBar.background": "#012516",
+      // "activityBar.inactiveForeground": "#ffee00b4",
+      "activityBar.inactiveForeground": "#31b907b4",
+      //激活的,用于区分不同的窗口
+      "titleBar.activeForeground": "#88ff00",
+      /*底部*/
+      // 底部状态栏内容颜色
+      "statusBar.foreground": "#cbd816", 
+      // 底部状态栏
+      // "statusBar.background": "#313b3b",
+      "statusBar.background": "#1d2b23",
+      /*设置guide线高亮颜色*/ 
       "editorIndentGuide.activeBackground": "#35776c",
       "list.activeSelectionBackground": "#3d28b3", //被鼠标选中背景
       "list.activeSelectionForeground": "#03ff42", //被鼠标选中文字颜色
       "list.focusBackground": "#3d28b3",
       "list.hoverBackground": "#373738b2",
       "list.hoverForeground": "#f3e305",
-      // 当前激活左侧栏的文件
+      /*当前激活左侧栏的文件*/ 
       "list.inactiveSelectionBackground": "#3d28b3",
       "list.inactiveSelectionForeground": "#f3e305",
-      // 设置错误文件颜色
+      /*设置错误文件颜色*/ 
       "list.errorForeground": "#ec1644",
       "list.warningForeground": "#800699",
-      // 菜单栏
+      /*菜单栏*/ 
       // "menubar.selectionBorder":"#07f313",
       // "menu.foreground":"#ff0000",
       "gitDecoration.modifiedResourceForeground": "#07f313",
@@ -137,28 +133,5 @@
       "gitDecoration.addedResourceForeground": "#92057b",
       "gitDecoration.untrackedResourceForeground": "#0d9223"
     }
-  },
-  "editor.tabSize": 2,
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "files.associations": {
-    "*.cjson": "jsonc",
-    "*.wxss": "css",
-    "*.wxs": "javascript"
-  },
-  "emmet.includeLanguages": {
-    "wxml": "html"
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "editor.fontLigatures":true,
-  "[json]": {
-    "editor.quickSuggestions": {
-      "strings": true
-    },
-    "editor.suggest.insertMode": "replace",
-  },
-  "breadcrumbs.enabled": true,
-  "editor.renderWhitespace": "all"
+  }
 }
