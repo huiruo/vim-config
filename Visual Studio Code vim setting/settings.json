@@ -86,48 +86,65 @@
       // "editor.background": "#1a2c1c",
       "editor.background": "#0d180d",
       "icon.foreground": "#893ecf",
-      /*激活卡*/
-      "tab.activeBackground": "#67409b",
+
+      /*中上顶部激活卡*/
+      "tab.activeBackground": "#030572",
       "tab.activeForeground": "#FFFF00",
+
       /*左侧栏*/
-      // "sideBar.background": "#345557",
-      // "sideBar.background": "#1a271a",
       "sideBar.background": "#142920",
       "sideBar.foreground": "#da8f1e", //#171817
       "input.foreground": "#07f313",
       "sideBarTitle.foreground": "#07f313",
       "sideBarSectionHeader.foreground": "#429191",
-      "sideBarSectionHeader.background": "#354e50", //侧边栏节标题的背景颜色
+      //侧边栏节标题的背景颜色
+      "sideBarSectionHeader.background": "#354e50", 
+
       /*最左侧*/
-      // "activityBar.background": "#4e3e63",
       "activityBar.background": "#012516",
-      // "activityBar.inactiveForeground": "#ffee00b4",
+      /* 最左侧 激活 tab*/
+      "activityBar.activeBackground": "#05531c",
+      //最左侧选中
+      "activityBar.foreground": "#e7e7e7",
       "activityBar.inactiveForeground": "#31b907b4",
-      //激活的,用于区分不同的窗口
-      "titleBar.activeForeground": "#88ff00",
+      /* 最左侧选中面包屑*/
+      "activityBar.activeBorder": "#06e606",
+      /* 最左侧变更圆点*/
+      "activityBarBadge.background": "#d1d1d3",
+      "activityBarBadge.foreground": "#1c7002",
+
+      /*激活的,用于区分不同的窗口,注释，使用 peacock 配色*/
+      // "titleBar.activeForeground": "#88ff00",
+      // "titleBar.activeBackground": "#88ff00",
+
       /*底部*/
       // 底部状态栏内容颜色
       "statusBar.foreground": "#cbd816", 
       // 底部状态栏
-      // "statusBar.background": "#313b3b",
       "statusBar.background": "#1d2b23",
+
       /*设置guide线高亮颜色*/ 
       "editorIndentGuide.activeBackground": "#35776c",
-      "list.activeSelectionBackground": "#3d28b3", //被鼠标选中背景
-      "list.activeSelectionForeground": "#03ff42", //被鼠标选中文字颜色
+      //被鼠标选中背景
+      "list.activeSelectionBackground": "#3d28b3",
+      //被鼠标选中文字颜色
+      "list.activeSelectionForeground": "#03ff42", 
       "list.focusBackground": "#3d28b3",
       "list.hoverBackground": "#373738b2",
       "list.hoverForeground": "#f3e305",
+
       /*当前激活左侧栏的文件*/ 
       "list.inactiveSelectionBackground": "#3d28b3",
       "list.inactiveSelectionForeground": "#f3e305",
+
       /*设置错误文件颜色*/ 
       "list.errorForeground": "#ec1644",
       "list.warningForeground": "#800699",
+
       /*菜单栏*/ 
       // "menubar.selectionBorder":"#07f313",
       // "menu.foreground":"#ff0000",
-      "gitDecoration.modifiedResourceForeground": "#07f313",
+      "gitDecoration.modifiedResourceForeground": "#07f13",
       "gitDecoration.stageModifiedResourceForeground": "#8e07a0",
       "gitDecoration.ignoredResourceForeground": "#817f14",
       "gitDecoration.addedResourceForeground": "#92057b",
