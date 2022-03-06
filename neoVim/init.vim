@@ -56,6 +56,8 @@ imap <C-l> <Right>
 imap <C-k> <Up>
 imap <C-j> <Down>
 imap <C-h> <BS>
+" 解决在插入模式复制问题
+imap <C-v> <Enter> <Left> <Up> <Esc> "+p 2k 1dd k
 " end
 
 "插件
