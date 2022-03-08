@@ -12,9 +12,8 @@ set wildmenu                                                    " 显示补全�
 set hlsearch                                                    " 高亮搜索结果
 set nobackup
 set noswapfile
-set wildmenu  " vim 自身命令行模式智能补全
+set wildmenu                    																" vim 自身命令行模式智能补全
 set showmatch " 高亮匹配括号
-et nocursorline " 设置不显示当前行横杠
 "set showtabline=0 "0 不显示标签栏,1,默认,2 总是显示标签栏
 syntax on
 set winaltkeys=no
@@ -57,8 +56,14 @@ imap <C-k> <Up>
 imap <C-j> <Down>
 imap <C-h> <BS>
 " 解决在插入模式复制问题
-imap <C-v> <Enter> <Left> <Up> <Esc> "+p 2k
+"imap <C-v> <Enter> <Left> <Up> <Esc> "+p 2k
+" imap <C-v> <Enter> <Left> <Up> <Esc> "+p I <BS> <Esc> h
+imap <C-v> <Enter> <Left> <Up> <Esc> "+p I <BS>
 " end
+
+function TestFn()
+	echo("test")
+endfunction
 
 "插件
 call plug#begin('~/AppData/Local/nvim/plugged')
@@ -72,12 +77,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " jsx start
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+" If you have nodejs and yarn,use this install markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } 
 " end
-Plug 'godlygeek/tabular' " vim-markdown必要插件
-Plug 'plasticboy/vim-markdown'
 call plug#end()
 
-let g:vim_markdown_folding_disabled = 1 " 禁用markdown折叠
 colorscheme molokai
 
 " 彩虹括号
@@ -157,6 +161,7 @@ function! s:defx_my_settings() abort
     nnoremap <silent><buffer><expr> s defx#do_action('drop', 'split')
     nnoremap <silent><buffer><expr> e defx#do_action('drop', 'vsplit')
     nnoremap <silent><buffer><expr> h defx#do_action('drop', 'vsplit')
+		" 重新读取硬盘
     nnoremap <silent><buffer><expr> R defx#do_action('redraw')
 endfunction
 
@@ -179,3 +184,8 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 hi tsxTagName guifg=#E06C75
 hi tsxComponentName guifg=#E06C75
 hi tsxCloseComponentName guifg=#E06C75
+
+" markdown preview
+nmap <C-m> <Plug>MarkdownPreview
+nmap <C-s> <Plug>MarkdownPreviewStop
+" nmap <C-p> <Plug>MarkdownPreviewToggle
