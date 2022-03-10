@@ -61,6 +61,7 @@ imap <C-h> <BS>
 imap <C-v> <Esc>"+p
 " markdown code block
 imap <C-b> <Esc><C-b>
+imap <C-y> ####<Space>
 " end
 
 function TestFn()
@@ -75,7 +76,6 @@ Plug 'luochen1990/rainbow'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " jsx start
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -166,14 +166,6 @@ function! s:defx_my_settings() abort
 		" 重新读取硬盘
     nnoremap <silent><buffer><expr> R defx#do_action('redraw')
 endfunction
-
-" 使<tab>用于触发完成，完成确认，摘要扩展和跳转，就像VSCode一样
-let g:coc_snippet_next = '<tab>'
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
