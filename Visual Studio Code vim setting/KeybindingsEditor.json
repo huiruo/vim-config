@@ -1,5 +1,0 @@
-{
-        "key": "alt+u",
-        "command": "extension.vim_ctrl+r",
-        "when": "textInputFocus && vim.mode != 'Insert'"
-}

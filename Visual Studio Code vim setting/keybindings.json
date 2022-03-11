@@ -1,8 +1,13 @@
 [
     {
-        "key": "ctrl+r",// redo in vim:解决:修改vim模式下的ctrl-r为U，但是这样做会出现问题，在插入模式下将无法输入字母U,所以在这里配置
+        "key": "ctrl+r", // redo in vim:解决:修改vim模式下的ctrl-r为U，但是这样做会出现问题，在插入模式下将无法输入字母U,所以在这里配置
         "command": "extension.vim_ctrl+r",
         "when": "textInputFocus && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "extension.vim_ctrl+b",
+        "when": "textInputFocus && vim.mode == 'Insert'"
     },
     {
         "key": "ctrl+-",
@@ -46,14 +51,14 @@
     // },
     //把 ctrl t 映射为搜索
     {
-      "key": "ctrl+t",
-      "command": "actions.find",
-      "when": "editorFocus || editorIsOpen"
+        "key": "ctrl+t",
+        "command": "actions.find",
+        "when": "editorFocus || editorIsOpen"
     },
     {
-      "key": "Z+Z",
+        "key": "Z+Z",
         "command": "workbench.action.closeWindow",
-  "when": "!editorIsOpen && !multipleEditorGroups"
+        "when": "!editorIsOpen && !multipleEditorGroups"
     },
     {
         "key": "ctrl+f",

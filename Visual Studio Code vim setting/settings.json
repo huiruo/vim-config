@@ -1,177 +1,274 @@
 {
-    // https://code.visualstudio.com/docs/getstarted/settings
-    "editor.fontSize": 16,
-    "editor.minimap.enabled": false,
-    "explorer.autoReveal": false, 
-    "window.titleBarStyle":"custom",
-    "window.menuBarVisibility": "toggle", 
-    "editor.tabSize": 2,
-  
-    // "vim.useSystemClipboard": true, 
-    "vim.useCtrlKeys": true,
-    "vim.handleKeys": {
-      "<C-v>": false
+  // https://code.visualstudio.com/docs/getstarted/settings
+  "editor.fontSize": 16,
+  "editor.minimap.enabled": false,
+  "explorer.autoReveal": false,
+  "window.titleBarStyle": "custom",
+  "window.menuBarVisibility": "toggle",
+  "editor.tabSize": 2,
+  // "vim.useSystemClipboard": true, 
+  "vim.useCtrlKeys": true,
+  "vim.handleKeys": {
+    "<C-v>": false
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "after": [
+        "<Right>"
+      ]
     },
-    "vim.insertModeKeyBindings": [
-      {
-        "before": ["<C-l>"],
-        "after": ["<Right>"]
-      },
-      {
-        "before": ["<C-g>"],
-        "after": ["<Left>"]
-      },
-      {
-        "before": ["C+k"],
-        "after": ["<Esc>"]
-      },
-      {
-        "before": ["C+j"],
-        "after": ["Up"]
-      }
-    ],
-    "vim.leader": "'",
-    "vim.normalModeKeyBindings": [
-      {
-        "before": ["<leader>", "a"],
-        "commands": ["workbench.action.toggleSidebarVisibility"]
-      },
-      {
-        "before": ["<leader>", "s"],
-        "commands": ["revealFileInOS"]
-      },
-      {
-        "before": ["<leader>", "e"],
-        "commands": ["workbench.files.action.showActiveFileInExplorer"]
-      },
-      {
-        "before": ["<leader>", "f"],
-        "commands": ["workbench.action.toggleFullScreen"]
-      }, 
-      {
-        "before": ["<leader>", "q"],
-        "commands": ["workbench.action.quickOpen"]
-      },
-      {
-        "before": ["<leader>", "w"],
-        "commands": ["workbench.action.toggleActivityBarVisibility"]
-      },
-      {
-        "before": ["<leader>", "t"],
-        "commands": ["workbench.action.terminal.new"]
-      },
-      {
-        "before": ["<leader>", "v"],
-        "commands": ["workbench.action.openView"]
-      },
-      {
-        "before": ["Y"],
-        "after": ["y", "$"]
-      },
-      {
-        "before": ["Z", "Z"],
-        "commands": [
-          {
-            "command": "workbench.action.closeActiveEditor",
-            "args": []
-          }
-        ]
-      }
-    ],
-  
-    "workbench.colorTheme": "Monokai",
-    "workbench.colorCustomizations": {
-      "[Monokai]": {
-        /*主板*/
-        // "editor.background": "#1a2c1c",
-        "editor.background": "#0d180d",
-        "icon.foreground": "#893ecf",
-  
-        /*中上顶部激活卡*/
-        "tab.activeBackground": "#030572",
-        "tab.activeForeground": "#FFFF00",
-  
-        /*左侧栏*/
-        "sideBar.background": "#142920",
-        "sideBar.foreground": "#da8f1e", //#171817
-        "input.foreground": "#07f313",
-        "sideBarTitle.foreground": "#07f313",
-        "sideBarSectionHeader.foreground": "#429191",
-        //侧边栏节标题的背景颜色
-        "sideBarSectionHeader.background": "#354e50", 
-  
-        /*最左侧*/
-        "activityBar.background": "#012516",
-        /* 最左侧 激活 tab*/
-        "activityBar.activeBackground": "#05531c",
-        //最左侧选中
-        "activityBar.foreground": "#e7e7e7",
-        "activityBar.inactiveForeground": "#31b907b4",
-        /* 最左侧选中面包屑*/
-        "activityBar.activeBorder": "#06e606",
-        /* 最左侧变更圆点*/
-        "activityBarBadge.background": "#d1d1d3",
-        "activityBarBadge.foreground": "#1c7002",
-  
-        /*激活的,用于区分不同的窗口,注释，使用 peacock 配色*/
-        // "titleBar.activeForeground": "#88ff00",
-        // "titleBar.activeBackground": "#88ff00",
-  
-        /*底部*/
-        // 底部状态栏内容颜色
-        "statusBar.foreground": "#cbd816", 
-        // 底部状态栏
-        "statusBar.background": "#1d2b23",
-  
-        /*设置guide线高亮颜色*/ 
-        "editorIndentGuide.activeBackground": "#35776c",
-        //被鼠标选中背景
-        "list.activeSelectionBackground": "#3d28b3",
-        //被鼠标选中文字颜色
-        "list.activeSelectionForeground": "#03ff42", 
-        "list.focusBackground": "#3d28b3",
-        "list.hoverBackground": "#373738b2",
-        "list.hoverForeground": "#f3e305",
-  
-        /*当前激活左侧栏的文件*/ 
-        "list.inactiveSelectionBackground": "#3d28b3",
-        "list.inactiveSelectionForeground": "#f3e305",
-  
-        /*设置错误文件颜色*/ 
-        "list.errorForeground": "#ec1644",
-        "list.warningForeground": "#800699",
-  
-        /*菜单栏*/ 
-        // "menubar.selectionBorder":"#07f313",
-        // "menu.foreground":"#ff0000",
-        "gitDecoration.modifiedResourceForeground": "#07f13",
-        "gitDecoration.stageModifiedResourceForeground": "#8e07a0",
-        "gitDecoration.ignoredResourceForeground": "#817f14",
-        "gitDecoration.addedResourceForeground": "#92057b",
-        "gitDecoration.untrackedResourceForeground": "#0d9223"
-      }
+    {
+      "before": [
+        "<C-g>"
+      ],
+      "after": [
+        "<Left>"
+      ]
     },
-    "editor.formatOnSave": true,
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "vscode.typescript-language-features"
+    {
+      "before": [
+        "C-k"
+      ],
+      "after": [
+        "<Up>"
+      ]
     },
-    // ESlint 提供一些修复方案。我们在保存代码时，VSCode 就会帮我们自动修复
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+    {
+      "before": [
+        "C-j"
+      ],
+      "after": [
+        "<Down>"
+      ]
     },
-    "eslint.codeAction.showDocumentation": {
-      "enable": true
+    {
+      "before": [
+        "C-b"
+      ],
+      "after": [
+        "`",
+        "`",
+        "`",
+        "<Enter>",
+        "`",
+        "`",
+        "`",
+        "<Up>",
+        "<Enter>"
+      ]
+    }, // markdown code block
+    {
+      "before": [
+        "C-y"
+      ],
+      "after": [
+        "#",
+        "#",
+        "#",
+        "#",
+        " "
+      ]
+    }, // markdown tiltle
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }, // leave insert
+  ],
+  "vim.leader": "'",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<leader>",
+        "a"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
     },
-    "eslint.format.enable":true,
-    /*
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "revealFileInOS"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "e"
+      ],
+      "commands": [
+        "workbench.files.action.showActiveFileInExplorer"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.toggleFullScreen"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "q"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.toggleActivityBarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.terminal.new"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "v"
+      ],
+      "commands": [
+        "workbench.action.openView"
+      ]
+    },
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
+    },
+    {
+      "before": [
+        "Z",
+        "Z"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.closeActiveEditor",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "workbench.colorTheme": "Monokai",
+  "workbench.colorCustomizations": {
+    "[Monokai]": {
+      /*主板*/
+      // "editor.background": "#1a2c1c",
+      "editor.background": "#0d180d",
+      "icon.foreground": "#893ecf",
+      /*中上顶部激活卡*/
+      "tab.activeBackground": "#030572",
+      "tab.activeForeground": "#FFFF00",
+      /*左侧栏*/
+      "sideBar.background": "#142920",
+      "sideBar.foreground": "#da8f1e", //#171817
+      "input.foreground": "#07f313",
+      "sideBarTitle.foreground": "#07f313",
+      "sideBarSectionHeader.foreground": "#429191",
+      //侧边栏节标题的背景颜色
+      "sideBarSectionHeader.background": "#354e50",
+      /*最左侧*/
+      "activityBar.background": "#012516",
+      /* 最左侧 激活 tab*/
+      "activityBar.activeBackground": "#05531c",
+      //最左侧选中
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#31b907b4",
+      /* 最左侧选中面包屑*/
+      "activityBar.activeBorder": "#06e606",
+      /* 最左侧变更圆点*/
+      "activityBarBadge.background": "#d1d1d3",
+      "activityBarBadge.foreground": "#1c7002",
+      /*激活的,用于区分不同的窗口,注释，使用 peacock 配色*/
+      // "titleBar.activeForeground": "#88ff00",
+      // "titleBar.activeBackground": "#88ff00",
+      /*底部*/
+      // 底部状态栏内容颜色
+      "statusBar.foreground": "#cbd816",
+      // 底部状态栏
+      "statusBar.background": "#1d2b23",
+      /*设置guide线高亮颜色*/
+      "editorIndentGuide.activeBackground": "#35776c",
+      //被鼠标选中背景
+      "list.activeSelectionBackground": "#3d28b3",
+      //被鼠标选中文字颜色
+      "list.activeSelectionForeground": "#03ff42",
+      "list.focusBackground": "#3d28b3",
+      "list.hoverBackground": "#373738b2",
+      "list.hoverForeground": "#f3e305",
+      /*当前激活左侧栏的文件*/
+      "list.inactiveSelectionBackground": "#3d28b3",
+      "list.inactiveSelectionForeground": "#f3e305",
+      /*设置错误文件颜色*/
+      "list.errorForeground": "#ec1644",
+      "list.warningForeground": "#800699",
+      /*菜单栏*/
+      // "menubar.selectionBorder":"#07f313",
+      // "menu.foreground":"#ff0000",
+      "gitDecoration.modifiedResourceForeground": "#07f13",
+      "gitDecoration.stageModifiedResourceForeground": "#8e07a0",
+      "gitDecoration.ignoredResourceForeground": "#817f14",
+      "gitDecoration.addedResourceForeground": "#92057b",
+      "gitDecoration.untrackedResourceForeground": "#0d9223"
+    }
+  },
+  "editor.formatOnSave": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  // ESlint 提供一些修复方案。我们在保存代码时，VSCode 就会帮我们自动修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.format.enable": true,
+  /*
     eslint.probe 这个规定 ESlint 插件需要校验的语言类型添
     */
-    "eslint.probe":[
-      "javascript",
-      "typescript", 
-      "typescriptreact", 
-      "html", 
-      "vue"
-    ]
+  "eslint.probe": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue"
+  ],
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "git.autofetch": true,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
-  
