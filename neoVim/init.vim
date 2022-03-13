@@ -41,7 +41,7 @@ set mouse=a                                                     " 启用鼠标
 map <C-C> "+y
 map <C-V> "+p
 " markdown code block
-map <C-b> i```<Enter>```<Up><Enter>
+map <C-i> i```<Enter>```<Up><Enter>
 
 " 快速跳转行首与行尾
 " nnoremap L $
@@ -60,7 +60,7 @@ imap <C-h> <BS>
 " 插入模式复制
 imap <C-v> <Esc>"+p
 " markdown code block
-imap <C-b> <Esc><C-b>
+imap <C-i> <Esc><C-i>
 imap <C-y> ####<Space>
 " end
 
@@ -82,7 +82,16 @@ Plug 'peitalin/vim-jsx-typescript'
 " If you have nodejs and yarn,use this install markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } 
 " end
+" markdown plug
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+" end
 call plug#end()
+
+" markdow plug
+let g:vim_markdown_override_foldtext = 0
+let g:vim_markdown_folding_disabled = 1
+" end
 
 colorscheme molokai
 
