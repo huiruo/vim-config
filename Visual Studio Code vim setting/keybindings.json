@@ -1,9 +1,9 @@
 [
     {
-        "key": "ctrl+r", // redo in vim:解决:修改vim模式下的ctrl-r为U，但是这样做会出现问题，在插入模式下将无法输入字母U,所以在这里配置
+        "key": "ctrl+r", 
         "command": "extension.vim_ctrl+r",
         "when": "textInputFocus && vim.mode != 'Insert'"
-    },
+    }, // redo in vim:解决:修改vim模式下的ctrl-r为U，但是这样做会出现问题，在插入模式下将无法输入字母U,所以在这里配置
     {
         "key": "ctrl+b",
         "command": "extension.vim_ctrl+b",
@@ -11,50 +11,14 @@
     },
     {
         "key": "ctrl+-",
-        "command": "-notebook.centerActiveCell",
-        "when": "notebookEditorFocused"
+        "command": "extension.vim_ctrl+i",
+        "when": "textInputFocus && vim.mode == 'Insert'"
     },
-    {
-        "key": "ctrl+-",
-        "command": "-expandLineSelection",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+-",
-        "command": "-extension.vim_navigateCtrlL",
-        "when": "editorTextFocus && vim.active && vim.use<C-l> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+-",
-        "command": "editor.action.startFindReplaceAction",
-        "when": "editorFocus || editorIsOpen"
-    },
-    {
-        "key": "ctrl+-",
-        "command": "-extension.vim_ctrl+h",
-        "when": "editorTextFocus && vim.active && vim.use<C-h> && !inDebugRepl"
-    },
-    // {
-    //     "key": "ctrl+l",
-    //     "command": "cursorHome",
-    //     "when": "textInputFocus"
-    // },
-    // {
-    //     "key": "ctrl+r",// redo in vim
-    //     "command": "extension.vim_ctrl+r",
-    //     "when": "textInputFocus && !editorReadonly"
-    // },
-    // {
-    //     "key": "alt+v",// option v 可视模式
-    //     "command": "extension.vim_ctrl+v",
-    //     "when": "textInputFocus && vim.active && vim.use<C-v>&&!inDebugRepl"
-    // },
-    //把 ctrl t 映射为搜索
     {
         "key": "ctrl+t",
         "command": "actions.find",
         "when": "editorFocus || editorIsOpen"
-    },
+    }, //把 ctrl t 映射为搜索
     {
         "key": "Z+Z",
         "command": "workbench.action.closeWindow",
@@ -64,5 +28,5 @@
         "key": "ctrl+f",
         "command": "-actions.find",
         "when": "editorFocus || editorIsOpen"
-    }
+    },
 ]
