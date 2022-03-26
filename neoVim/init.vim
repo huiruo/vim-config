@@ -62,7 +62,7 @@ imap <C-v> <Esc>"+p
 " markdown code block
 imap <C--> <Esc><C-->
 imap <C-y> ####<Space>
-map <C-y> i ####<Space>
+map <C-y> i####<Space>
 " end
 
 function TestFn()
