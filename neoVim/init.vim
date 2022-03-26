@@ -41,7 +41,7 @@ set mouse=a                                                     " 启用鼠标
 map <C-C> "+y
 map <C-V> "+p
 " markdown code block
-map <C-i> i```<Enter>```<Up><Enter>
+map <C--> i```<Enter>```<Up><Enter>
 
 " 快速跳转行首与行尾
 " nnoremap L $
@@ -60,8 +60,9 @@ imap <C-h> <BS>
 " 插入模式复制
 imap <C-v> <Esc>"+p
 " markdown code block
-imap <C-i> <Esc><C-i>
+imap <C--> <Esc><C-->
 imap <C-y> ####<Space>
+map <C-y> i ####<Space>
 " end
 
 function TestFn()
@@ -91,6 +92,8 @@ call plug#end()
 " markdow plug
 let g:vim_markdown_override_foldtext = 0
 let g:vim_markdown_folding_disabled = 1
+" map <Tab> <Esc>
+" imap <Tab> <BS>
 " end
 
 colorscheme molokai
