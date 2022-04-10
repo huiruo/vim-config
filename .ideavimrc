@@ -33,6 +33,12 @@ nnoremap <Leader>q  :w<CR>
 nnoremap <Leader>d  <C-d>
 nnoremap <Leader>u  <C-u>
 
+" markdown code block
+map <C--> i```<Enter><Esc>O
+imap <C--> <Esc><C-->
+imap <C-y> ####<Space>
+map <C-y> i####<Space>
+
 " idea内置
 
 "显示当前文件路径

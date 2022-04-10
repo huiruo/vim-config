@@ -40,8 +40,6 @@ set mouse=a                                                     " 启用鼠标
 "imap <C-c> "+y
 map <C-C> "+y
 map <C-V> "+p
-" markdown code block
-map <C--> i```<Enter>```<Up><Enter>
 
 " 快速跳转行首与行尾
 " nnoremap L $
@@ -59,7 +57,9 @@ imap <C-j> <Down>
 imap <C-h> <BS>
 " 插入模式复制
 imap <C-v> <Esc>"+p
+
 " markdown code block
+map <C--> i```<Enter>```<Up><Enter>
 imap <C--> <Esc><C-->
 imap <C-y> ####<Space>
 map <C-y> i####<Space>
