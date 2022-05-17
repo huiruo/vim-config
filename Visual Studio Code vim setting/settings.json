@@ -68,10 +68,21 @@
         "#",
         "#",
         "#",
-        "#",
         " "
       ]
     }, // markdown tiltle
+    {
+      "before": [
+        "C-]"
+      ],
+      "after": [
+        "#",
+        "#",
+        "#",
+        "#",
+        " "
+      ]
+    }, // markdown tiltle 2
     {
       "before": [
         "j",
@@ -270,5 +281,7 @@
     "**/.factorypath": true
   },
   "git.autofetch": true,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "git.confirmSync": false,
+  "settingsSync.ignoredExtensions": []
 }

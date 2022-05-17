@@ -5,6 +5,9 @@ set encoding=utf-8                                              " utf-8编码
 set helplang=cn                                                 " 中文帮助文档
 set number                                                      " 显示行号
 set wrap                                                        " 自动换行
+autocmd FocusGained * :checktime
+set autoread
+set autoread
 "set nowrap																											"	设置不换行
 set showcmd                                                     " 显示输入信息
 set cursorline                                                  " 显示光标所在行
@@ -40,6 +43,8 @@ set mouse=a                                                     " 启用鼠标
 "imap <C-c> "+y
 map <C-C> "+y
 map <C-V> "+p
+" markdown code block
+map <C--> i```<Enter>```<Up><Enter>
 
 " 快速跳转行首与行尾
 " nnoremap L $
@@ -57,12 +62,12 @@ imap <C-j> <Down>
 imap <C-h> <BS>
 " 插入模式复制
 imap <C-v> <Esc>"+p
-
 " markdown code block
-map <C--> i```<Enter>```<Up><Enter>
 imap <C--> <Esc><C-->
-imap <C-y> ####<Space>
-map <C-y> i####<Space>
+imap <C-y> ###<Space>
+map <C-y> i###<Space>
+map <C-]> i####<Space>
+imap <C-]> ####<Space>
 " end
 
 function TestFn()
