@@ -44,7 +44,8 @@ set mouse=a                                                     " 启用鼠标
 map <C-C> "+y
 map <C-V> "+p
 " markdown code block
-map <C--> i```<Enter>```<Up><Enter>
+map <C-i> i```<Enter>```<Up><Enter>
+imap <C--> <Esc><C-i>
 
 " 快速跳转行首与行尾
 " nnoremap L $
@@ -62,12 +63,15 @@ imap <C-j> <Down>
 imap <C-h> <BS>
 " 插入模式复制
 imap <C-v> <Esc>"+p
-" markdown code block
-imap <C--> <Esc><C-->
-imap <C-y> ###<Space>
-map <C-y> i###<Space>
-map <C-]> i####<Space>
-imap <C-]> ####<Space>
+
+imap <C-y> ##<Space>
+map <C-y> i##<Space>
+
+map <C-]> i###<Space>
+imap <C-]> ###<Space>
+
+map <C-\> i####<Space>
+imap <C-\> ####<Space>
 " end
 
 function TestFn()
@@ -199,4 +203,4 @@ hi tsxCloseComponentName guifg=#E06C75
 " markdown preview
 nmap <C-m> <Plug>MarkdownPreview
 nmap <C-s> <Plug>MarkdownPreviewStop
-" nmap <C-p> <Plug>MarkdownPreviewToggle
+"

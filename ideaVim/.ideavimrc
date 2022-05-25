@@ -36,11 +36,13 @@ nnoremap <Leader>u  <C-u>
 " markdown code block
 map <C--> i```<Enter><Esc>O
 imap <C--> <Esc><C-->
-imap <C-y> ###<Space>
-map <C-y> i###<Space>
+imap <C-y> ##<Space>
+map <C-y> i##<Space>
 
-imap <C-]> ####<Space>
-map <C-]> i####<Space>
+imap <C-]> ###<Space>
+map <C-]> i###<Space>
+map <C-\> i###<Space>
+imap <C-\> ###<Space>
 
 " idea内置
 

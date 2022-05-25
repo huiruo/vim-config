@@ -59,7 +59,7 @@
         "<Up>",
         "<Enter>"
       ]
-    }, // markdown code block
+    }, // ctrl + - 的映射
     {
       "before": [
         "C-y"
@@ -67,10 +67,9 @@
       "after": [
         "#",
         "#",
-        "#",
         " "
       ]
-    }, // markdown tiltle
+    }, // markdown tiltle ## 
     {
       "before": [
         "C-]"
@@ -79,19 +78,21 @@
         "#",
         "#",
         "#",
+        " "
+      ]
+    }, // markdown tiltle ### 
+    {
+      "before": [
+        "C-e"
+      ],
+      "after": [
+        "#",
+        "#",
+        "#",
         "#",
         " "
       ]
-    }, // markdown tiltle 2
-    {
-      "before": [
-        "j",
-        "k"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    }, // leave insert
+    }, //  ctrl + \ 的映射
   ],
   "vim.leader": "'",
   "vim.normalModeKeyBindings": [
