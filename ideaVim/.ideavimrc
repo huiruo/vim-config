@@ -14,17 +14,6 @@ imap <C-l> <Right>
 imap <C-k> <Up>
 imap <C-j> <Down>
 " end
-" 注释star
-nnoremap <C-Up> I/*<cr>
-imap <C-Up> <Home>/*<cr>
-nnoremap <C-Down> A*/
-imap <C-Down> <End> */
-" shift+Left注释反注释
-nmap <C-Left> I//<ESC>
-imap <C-Left> <Home>//<ESC>
-nmap <C-Right> <Home>xx<ESC>
-imap <C-Right> <Home><Right><Right><BS><BS><ESC>
-" 注释 end
 
 " 设置leader键
 let mapleader="'"
@@ -36,6 +25,7 @@ nnoremap <Leader>u  <C-u>
 " markdown code block
 map <C--> i```<Enter><Esc>O
 imap <C--> <Esc><C-->
+
 imap <C-y> ##<Space>
 map <C-y> i##<Space>
 

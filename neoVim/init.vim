@@ -44,16 +44,14 @@ set mouse=a                                                     " 启用鼠标
 map <C-C> "+y
 map <C-V> "+p
 " markdown code block
-map <C-i> i```<Enter>```<Up><Enter>
+" map <C-i> i```<Enter>```<Up><Enter>
+" imap <C--> <Esc><C-i>
+
+map <C-i> i```javaScript<Esc>o```<Esc>O
 imap <C--> <Esc><C-i>
 
-" 快速跳转行首与行尾
-" nnoremap L $
-" nnoremap H ^
-" 向下5行
-" noremap <C-j> 5j
-" 向上5行
-"noremap <C-k> 5k
+map <C-q> i```<Enter>```<Up><Enter>
+imap <C-q> <Esc><C-q>
 
 " 插入模式命令
 imap <C-g> <Left>
@@ -74,18 +72,10 @@ map <C-\> i####<Space>
 imap <C-\> ####<Space>
 " end
 
-function TestFn()
-	echo("test")
-endfunction
-
 "插件
 call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'tomasr/molokai'
 Plug 'luochen1990/rainbow'
-"Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " jsx start
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -101,8 +91,6 @@ call plug#end()
 " markdow plug
 let g:vim_markdown_override_foldtext = 0
 let g:vim_markdown_folding_disabled = 1
-" map <Tab> <Esc>
-" imap <Tab> <BS>
 " end
 
 colorscheme molokai
@@ -131,67 +119,6 @@ let g:rainbow_conf = {
 	\		'css': 0,
 	\	}
 	\}
-
-"Leaderf 配置
-"nnoremap <silent> <LocalLeader>m :LeaderfMru <CR>
-"nnoremap <silent> <LocalLeader>l :LeaderfLine <CR>
-"nnoremap <silent> <LocalLeader>f :LeaderfFile <CR>
-"nnoremap <silent> <LocalLeader>b :LeaderfBuffer <CR>
-
-" ftz
-"当前目录搜索文件
-nnoremap <silent> <C-p> :Files<CR>
-" Ctrl + e 查看当前 Buffer，两次 Ctrl + e 快速切换上次打开的 Buffer
-nmap <C-e> :Buffers<CR>
-"nnoremap <silent> <LocalLeader> :Buffers<CR>
-let g:fzf_action = { 'ctrl-e': 'edit' }
-
-" 在Vim打开的历史文件中搜索，相当于是在MRU中搜索，:History：命令历史查找
-nnoremap <silent> <LocalLeader>b :History <CR>
-" Lines只在当前Buffer中搜索
-nnoremap <silent> <LocalLeader>l :Lines <CR>
-" :Marks搜索 mark 标记
-nnoremap <silent> <LocalLeader>m :Marks <CR>
-
-"defx
-call defx#custom#option('_', {
-      \ 'winwidth': 30,
-      \ 'columns': 'git:mark:indent:icons:filename:type',
-      \ 'split': 'vertical',
-      \ 'direction': 'topleft',
-      \ 'show_ignored_files': 0,
-      \ 'buffer_name': '',
-      \ 'toggle': 1,
-      \ 'resume': 1
-      \ })
-
-nmap <silent> <Leader>a :Defx <cr>
-"nnoremap <silent> <LocalLeader>e :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-"nnoremap <silent> <LocalLeader>a :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
-
-" 设置 ff 为开关defx的快捷键, 其中【-search=`expand('%:p')`】表示打开defx树后，光标自动放在当前buffer上
-nnoremap <silent> <LocalLeader>e :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
-
-autocmd FileType defx call s:defx_my_settings()
-function! s:defx_my_settings() abort
-    " Define mappings
-    setl nonu
-    nnoremap <silent><buffer><expr> <CR> defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('drop')
-    nnoremap <silent><buffer><expr> c defx#do_action('copy')
-    nnoremap <silent><buffer><expr> K defx#do_action('new_directory')
-    nnoremap <silent><buffer><expr> N defx#do_action('new_file')
-
-    nnoremap <silent><buffer><expr> s defx#do_action('drop', 'split')
-    nnoremap <silent><buffer><expr> e defx#do_action('drop', 'vsplit')
-    nnoremap <silent><buffer><expr> h defx#do_action('drop', 'vsplit')
-		" 重新读取硬盘
-    nnoremap <silent><buffer><expr> R defx#do_action('redraw')
-endfunction
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 " jsx支持
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
