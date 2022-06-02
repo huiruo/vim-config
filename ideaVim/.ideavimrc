@@ -23,7 +23,10 @@ nnoremap <Leader>d  <C-d>
 nnoremap <Leader>u  <C-u>
 
 " markdown code block
-map <C--> i```<Enter><Esc>O
+map <C-q> i```<Enter><Esc>O
+imap <C-q> <Esc><C-q>
+
+map <C--> i```javaScript<C-m><Esc>O
 imap <C--> <Esc><C-->
 
 imap <C-y> ##<Space>
