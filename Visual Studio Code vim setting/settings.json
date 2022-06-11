@@ -157,9 +157,9 @@
         "<Esc>",
         "o",
         "A",
-        "1",
+        "1"
       ]
-    },
+    }
   ],
   "vim.leader": "'",
   "vim.normalModeKeyBindings": [
@@ -170,6 +170,15 @@
       ],
       "commands": [
         "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        "workbench.action.toggleActivityBarVisibility"
       ]
     },
     {
@@ -262,7 +271,8 @@
     "[Monokai]": {
       /*主板*/
       // "editor.background": "#1a2c1c",
-      "editor.background": "#0d180d",
+      // "editor.background": "#0d180d",
+      "editor.background": "#1f241f",
       "icon.foreground": "#893ecf",
       /*中上顶部激活卡*/
       "tab.activeBackground": "#030572",
@@ -351,5 +361,6 @@
   "git.autofetch": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "git.confirmSync": false,
-  "settingsSync.ignoredExtensions": []
+  "settingsSync.ignoredExtensions": [],
+  "workbench.activityBar.visible": false
 }
