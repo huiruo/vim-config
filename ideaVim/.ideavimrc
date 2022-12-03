@@ -1,0 +1,73 @@
+map <C-v> "+gP
+imap <C-v> <S-Insert>
+map <C-c> "+y
+imap <C-c> "+y
+map <F9> o<Esc>p<Esc>
+map <S-TAB> << V
+vmap <S-TAB> << V
+map <TAB> >> 
+vmap <TAB> >>
+" 插入模式命令
+imap <C-h> <BS>
+imap <C-g> <Left>
+imap <C-l> <Right>
+imap <C-k> <Up>
+imap <C-j> <Down>
+" end
+
+" 设置leader键
+let mapleader="'"
+nnoremap <Leader>q  :w<CR>
+" (上下翻页)
+nnoremap <Leader>d  <C-d>
+nnoremap <Leader>u  <C-u>
+
+" markdown code block
+map <C-q> i```<Enter><Esc>O
+imap <C-q> <Esc><C-q>
+
+map <C--> i```javaScript<C-m><Esc>O
+imap <C--> <Esc><C-->
+
+imap <C-y> ##<Space>
+map <C-y> i##<Space>
+
+imap <C-]> ###<Space>
+map <C-]> i###<Space>
+map <C-\> i###<Space>
+imap <C-\> ###<Space>
+
+" idea内置
+
+"显示当前文件路径
+nnoremap <Leader>s :action ShowFilePath<CR>
+
+nnoremap <Leader>e :action SelectIn<CR>
+
+nnoremap <Leader>a :action RecentFiles<CR>
+
+" GotoFile 相当于ctrl+p
+nnoremap <C-p> :action GotoFile<CR>
+
+nnoremap <Leader>q :action OpenInBrowser<CR>
+
+nnoremap <Leader>t :action Terminal.OpenInTerminal<CR>
+
+" 隐藏侧边项目栏 
+"nnoremap <Leader>a :action ActivateProjectToolWindow<CR>
+nnoremap <Leader>h :action ActivateProjectToolWindow<CR>
+
+nnoremap <Leader>y :action ToggleFindInSelection<CR>
+
+"相当于IDEA的两次shift按钮
+"nnoremap <Leader>se :action SearchEverywhere<CR>
+"
+nnoremap <Leader>fs :action ToggleFullScreen<CR>
+
+nnoremap <C-A-l> :action ReformatCode<CR>
+
+"跳转到Action
+nnoremap <Leader>ga :action GotoAction<CR>
+
+" 重命名文件
+nnoremap <Leader>rf :action RenameFile<CR>

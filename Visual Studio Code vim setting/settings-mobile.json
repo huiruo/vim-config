@@ -1,0 +1,139 @@
+{
+  "workbench.colorTheme": "Monokai",
+  "editor.lineNumbers": "off",
+  "workbench.activityBar.visible": false,
+  "editor.fontSize": 16,
+  "editor.minimap.enabled": false,
+  "explorer.autoReveal": false,
+  "window.titleBarStyle": "custom",
+  "editor.tabSize": 2,
+  "vim.useCtrlKeys": true,
+  "vim.handleKeys": {
+    "<C-v>": false
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "t",
+        "t"
+      ],
+      "after": [
+        "<C-v>"
+      ]
+    },
+    {
+      "before": [
+        "t",
+        "y"
+      ],
+      "after": [
+        "#",
+        "#",
+        " "
+      ]
+    },
+    {
+      "before": [
+        "t",
+        "q"
+      ],
+      "after": [
+        "`",
+        "`",
+        "`",
+        "<Enter>",
+        "`",
+        "`",
+        "`",
+        "<Up>",
+        "<Enter>"
+      ]
+    }
+  ],
+  "vim.leader": "'",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "t",
+        "t"
+      ],
+      "after": [
+        "i",
+        "<C-v>"
+      ]
+    },
+    {
+      "before": [
+        "t",
+        "y"
+      ],
+      "after": [
+        "i",
+        "#",
+        "#",
+        " "
+      ]
+    },
+    {
+      "before": [
+        "t",
+        "q"
+      ],
+      "after": [
+        "i",
+        "t",
+        "q"
+      ]
+    },
+    {
+      "before": [
+        "t",
+        "r"
+      ],
+      "commands": [
+        "workbench.action.toggleActivityBarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "t",
+        "m"
+      ],
+      "commands": [
+        "workbench.action.terminal.new"
+      ]
+    },
+    {
+      "before": [
+        "Z",
+        "Z"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.closeActiveEditor",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "c",
+        "c"
+      ],
+      "after": [
+        "<C-c>"
+      ]
+    }
+  ]
+}
