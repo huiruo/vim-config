@@ -1,0 +1,6 @@
+imap <C-h> <BS>
+imap <C-g> <Left>
+
+map <C-C> "+y
+map <C-V> "+p
+imap <C-v> <Esc>"+p
