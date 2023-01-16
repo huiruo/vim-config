@@ -4,3 +4,6 @@ imap <C-g> <Left>
 map <C-C> "+y
 map <C-V> "+p
 imap <C-v> <Esc>"+p
+
+nmap <C-s> :w!<cr>
+imap <C-s> <esc>:w!<cr>
