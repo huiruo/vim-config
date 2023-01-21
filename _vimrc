@@ -74,16 +74,16 @@ endfunction
 
 function OpenSingle(fileName)
 if a:fileName =="doc"
-   execute "vi C:\\Users\\Administrator\\OneDrive\\202009-12-gvim\\0000_文档\\01_1_常用.md"
+   execute "vi C:\\Users\\Administrator\\OneDrive\\xx1.md"
 elseif a:fileName == "set"
    execute "vi E:\\Program Files Chen\\vim\\_vimrc"
 elseif a:fileName == "guide"
-   execute "vi C:\\Users\\Administrator\\vimpro\\doc.vim"
+   execute "vi C:\\Users\\Administrator\\vimpro\\xx2.md"
    execute "Explore"
 elseif a:fileName == "teableDoc"
-  execute "vi C:\\Users\\Administrator\\OneDrive\\202009-12-gvim\\teable_project\\01_table项目文档.md"
+  execute "vi C:\\Users\\Administrator\\OneDrive\\xx3.md"
 elseif a:fileName == "vimroot"
-  execute "vi C:\\Users\\Administrator\\OneDrive\\202009-12-gvim\\vimRoot.txt"
+  execute "vi C:\\Users\\Administrator\\OneDrive\\xx4.md"
 endif
 endfunction
 
