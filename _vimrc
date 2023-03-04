@@ -61,13 +61,6 @@ Plug 'skywind3000/vim-terminal-help'
 " Plug 'godlygeek/tabular'
 " Plug 'preservim/vim-markdown'
 " Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
-
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-path'
 call plug#end()
 
 let g:airline#extensions#tabline#enabled = 1  " open tabline
