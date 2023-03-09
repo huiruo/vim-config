@@ -59,7 +59,7 @@
         "<Up>",
         "<Enter>"
       ]
-    }, // ctrl + - 的映射
+    }, // ctrl + -
     {
       "before": [
         "C-i"
@@ -84,9 +84,9 @@
         "`",
         "`",
         "<Esc>",
-        "O",
+        "O"
       ]
-    }, // ctrl + - 的映射
+    }, // ctrl + y
     {
       "before": [
         "C-y"
@@ -119,7 +119,7 @@
         "#",
         " "
       ]
-    }, //  ctrl + \ 的映射
+    }, //  ctrl + e
     {
       "before": [
         "C-e"
@@ -163,6 +163,22 @@
   ],
   "vim.leader": "'",
   "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "^"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "$"
+      ]
+    },
     {
       "before": [
         "<leader>",
@@ -334,7 +350,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-  // ESlint 提供一些修复方案。我们在保存代码时，VSCode 就会帮我们自动修复
+  // ESlint
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -343,7 +359,7 @@
   },
   "eslint.format.enable": true,
   /*
-    eslint.probe 这个规定 ESlint 插件需要校验的语言类型添
+    eslint.probe:ESlint 插件需要校验的语言类型添
     */
   "eslint.probe": [
     "javascript",
@@ -361,6 +377,5 @@
   "git.autofetch": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "git.confirmSync": false,
-  "settingsSync.ignoredExtensions": [],
-  "workbench.activityBar.visible": false
+  "settingsSync.ignoredExtensions": []
 }
