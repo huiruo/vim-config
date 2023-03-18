@@ -110,18 +110,6 @@
     }, // markdown tiltle ### 
     {
       "before": [
-        "C-x"
-      ],
-      "after": [
-        "#",
-        "#",
-        "#",
-        "#",
-        " "
-      ]
-    }, //  ctrl + e
-    {
-      "before": [
         "C-e"
       ],
       "after": [
@@ -163,6 +151,14 @@
   ],
   "vim.leader": "'",
   "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "space"
+      ],
+      "after": [
+        ":"
+      ]
+    },
     {
       "before": [
         "H"
@@ -285,65 +281,67 @@
   "workbench.colorTheme": "Monokai",
   "workbench.colorCustomizations": {
     "[Monokai]": {
-      /*主板*/
+      // 主板
       // "editor.background": "#1a2c1c",
       // "editor.background": "#0d180d",
       "editor.background": "#1f241f",
       "icon.foreground": "#893ecf",
-      /*中上顶部激活卡*/
+      // 中上顶部激活卡
       "tab.activeBackground": "#030572",
       "tab.activeForeground": "#FFFF00",
-      /*左侧栏*/
+      // 左侧栏
       "sideBar.background": "#142920",
-      "sideBar.foreground": "#da8f1e", //#171817
+      // 左侧栏常规文件颜色
+      "sideBar.foreground": "#0d9223",
+      // 被鼠标选中背景
+      "list.activeSelectionBackground": "#3d28b3",
+      // 被鼠标选中文字颜色
+      "list.activeSelectionForeground": "#03ff42",
+      "list.focusBackground": "#3d28b3",
+      "list.hoverBackground": "#373738b2",
+      "list.hoverForeground": "#f2f521",
+      // 设置错误文件颜色
+      "list.errorForeground": "#ec1644",
+      "list.warningForeground": "#800699",
+      // 当前激活左侧栏的文件
+      "list.inactiveSelectionBackground": "#3d28b3",
+      "list.inactiveSelectionForeground": "#f34905",
       "input.foreground": "#07f313",
       "sideBarTitle.foreground": "#07f313",
       "sideBarSectionHeader.foreground": "#429191",
-      //侧边栏节标题的背景颜色
+      // 侧边栏节标题的背景颜色
       "sideBarSectionHeader.background": "#354e50",
-      /*最左侧*/
+      // 最左侧
       "activityBar.background": "#012516",
-      /* 最左侧 激活 tab*/
+      // 最左侧 激活 tab
       "activityBar.activeBackground": "#05531c",
-      //最左侧选中
+      // 最左侧选中
       "activityBar.foreground": "#e7e7e7",
       "activityBar.inactiveForeground": "#31b907b4",
-      /* 最左侧选中面包屑*/
+      // 最左侧选中面包屑
       "activityBar.activeBorder": "#06e606",
-      /* 最左侧变更圆点*/
+      // 最左侧变更圆点
       "activityBarBadge.background": "#d1d1d3",
       "activityBarBadge.foreground": "#1c7002",
-      /*激活的,用于区分不同的窗口,注释，使用 peacock 配色*/
+      // 激活的,用于区分不同的窗口,注释，使用 peacock 配色
       // "titleBar.activeForeground": "#88ff00",
       // "titleBar.activeBackground": "#88ff00",
-      /*底部*/
+      // 底部
       // 底部状态栏内容颜色
       "statusBar.foreground": "#cbd816",
       // 底部状态栏
       "statusBar.background": "#1d2b23",
-      /*设置guide线高亮颜色*/
+      // 设置guide线高亮颜色
       "editorIndentGuide.activeBackground": "#35776c",
-      //被鼠标选中背景
-      "list.activeSelectionBackground": "#3d28b3",
-      //被鼠标选中文字颜色
-      "list.activeSelectionForeground": "#03ff42",
-      "list.focusBackground": "#3d28b3",
-      "list.hoverBackground": "#373738b2",
-      "list.hoverForeground": "#f3e305",
-      /*当前激活左侧栏的文件*/
-      "list.inactiveSelectionBackground": "#3d28b3",
-      "list.inactiveSelectionForeground": "#f3e305",
-      /*设置错误文件颜色*/
-      "list.errorForeground": "#ec1644",
-      "list.warningForeground": "#800699",
-      /*菜单栏*/
+      // 菜单栏
       // "menubar.selectionBorder":"#07f313",
       // "menu.foreground":"#ff0000",
-      "gitDecoration.modifiedResourceForeground": "#07f13",
+      // git 改变的文件的标记颜色
+      "gitDecoration.modifiedResourceForeground": "#278be7",
       "gitDecoration.stageModifiedResourceForeground": "#8e07a0",
       "gitDecoration.ignoredResourceForeground": "#817f14",
       "gitDecoration.addedResourceForeground": "#92057b",
-      "gitDecoration.untrackedResourceForeground": "#0d9223"
+      "gitDecoration.untrackedResourceForeground": "#df851f"
     }
   },
   "editor.formatOnSave": true,
@@ -377,5 +375,6 @@
   "git.autofetch": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "git.confirmSync": false,
-  "settingsSync.ignoredExtensions": []
+  "settingsSync.ignoredExtensions": [],
+  "git.enableSmartCommit": true
 }
