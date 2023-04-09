@@ -1,4 +1,6 @@
-## peacock使用
+# Code Spell Checker
+
+# peacock
 ```
 1.Ctrl+Shift+P调出执行vscode命令窗口，输入:
 peacock

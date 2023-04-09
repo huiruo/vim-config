@@ -96,7 +96,7 @@
         "#",
         " "
       ]
-    }, // markdown tiltle ## 
+    }, // markdown title ## 
     {
       "before": [
         "C-]"
@@ -107,7 +107,7 @@
         "#",
         " "
       ]
-    }, // markdown tiltle ### 
+    }, // markdown title ### 
     {
       "before": [
         "C-e"
@@ -140,8 +140,8 @@
         "r",
         "t",
         " ",
-        "B",
         "T",
+        "D",
         "<Esc>",
         "o",
         "A",
